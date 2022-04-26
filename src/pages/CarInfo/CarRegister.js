@@ -15,6 +15,8 @@ import {
   Typography,
 } from "antd";
 import React, { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { openModal } from "redux/action/CarAction";
 
 const form = [
   {
@@ -87,7 +89,9 @@ function renderComponent(list) {
 }
 
 const CarRegister = () => {
-  const [isModal, setIsModal] = useState(false);
+  const dispatch = useDispatch();
+  const modalVisible = useSelector((state) => state.car.modalVisible);
+  console.log(modalVisible);
 
   return (
     <Card>
@@ -112,7 +116,7 @@ const CarRegister = () => {
                   htmlType="submit"
                   size="large"
                   block
-                  onClick={() => setIsModal(true)}
+                  onClick={() => dispatch(openModal(true))}
                 >
                   Add Register Time
                 </Button>
@@ -122,10 +126,10 @@ const CarRegister = () => {
         </Row>
       </Form>
       <Modal
-        onCancel={() => setIsModal(false)}
+        onCancel={() => dispatch(openModal(false))}
         cancelButtonProps={{ hidden: true }}
         okButtonProps={{ hidden: true }}
-        visible={isModal}
+        visible={modalVisible}
       >
         <Space align="center" direction="vertical" style={{ display: "flex" }}>
           <CheckCircleOutlined style={{ fontSize: 120, color: "#4070ff" }} />
@@ -139,7 +143,7 @@ const CarRegister = () => {
             type="primary"
             size="large"
             style={{ marginTop: 16 }}
-            onClick={() => setIsModal(false)}
+            onClick={() => dispatch(openModal(false))}
           >
             Confirm
           </Button>
