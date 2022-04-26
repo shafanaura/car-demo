@@ -36,7 +36,7 @@ const detail = [
   },
   {
     title: "APK",
-    value: car.apk,
+    value: "expired " + car.apk,
   },
 ];
 

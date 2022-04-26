@@ -1,15 +1,23 @@
 @import "antd/dist/antd.less";
 
 // custome antd theme for global
-@font-family: "Poppins", sans-serif;
 @primary-color: #4070ff;
+@error-color: #fa5858;
+@highlight-color: @error-color;
+@success-color: #4ec87f;
+@font-family: "Poppins", sans-serif;
 @avatar-border-radius: 12px;
 @border-radius-base: 32px;
 @input-padding-vertical-base: 8px;
 @input-padding-horizontal: 26px;
 @input-bg: #f5f5f5;
-@input-border-color: none;
+@input-border-color: transparent;
 @card-radius: 12px;
+@btn-font-weight: 500;
+@btn-height-lg: 46px;
+@btn-font-size-lg: 14px;
+@btn-padding-horizontal-lg: 24px;
+@input-height-base: 42px;
 
 // global style
 .flex-center {
@@ -18,9 +26,6 @@
 }
 
 // custom antd style for global
-.ant-input {
-  border-radius: 0;
-}
 .ant-tag {
   padding: 3px 16px;
   font-weight: 500;
