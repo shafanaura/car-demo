@@ -1,4 +1,4 @@
-import { Space, Tag } from "antd";
+import { Card, Image, Space, Tag } from "antd";
 import React from "react";
 import styles from "./styles.module.css";
 
@@ -41,38 +41,39 @@ const detail = [
 
 const CarDetail = () => {
   return (
-    <div className={styles.container}>
-      <Space size="large" direction="vertical">
-        <img
-          src="https://truckmagz.com/wp-content/uploads/2016/03/ultra1518-img1.jpg"
-          style={{ height: 200 }}
-          alt="img"
-        />
-        <table>
-          <tr>
-            <td className={styles["title-menu"]}>Car license :</td>
-            <td style={{ fontWeight: 500 }}>{car.license}</td>
-          </tr>
+    <Card>
+      <Space size="large" align="start" style={{ display: "flex" }}>
+        <Space size="large" direction="vertical">
+          <Image
+            height={200}
+            src="https://truckmagz.com/wp-content/uploads/2016/03/ultra1518-img1.jpg"
+          />
+          <table>
+            <tr>
+              <td className={styles["title-menu"]}>Car license :</td>
+              <td style={{ fontWeight: 500 }}>{car.license}</td>
+            </tr>
+          </table>
+        </Space>
+        <table className={styles.table}>
+          {detail.map((item) => (
+            <tr>
+              <td className={styles["title-menu"]}>{item.title}</td>
+              <td>
+                :{" "}
+                {item.title === "Status" ? (
+                  <Tag color={item.value === "In" ? "success" : "error"}>
+                    {item.value}
+                  </Tag>
+                ) : (
+                  item.value
+                )}
+              </td>
+            </tr>
+          ))}
         </table>
       </Space>
-      <table>
-        {detail.map((item) => (
-          <tr>
-            <td className={styles["title-menu"]}>{item.title}</td>
-            <td>
-              :{" "}
-              {item.title === "Status" ? (
-                <Tag color={item.value === "In" ? "success" : "error"}>
-                  {item.value}
-                </Tag>
-              ) : (
-                item.value
-              )}
-            </td>
-          </tr>
-        ))}
-      </table>
-    </div>
+    </Card>
   );
 };
 
