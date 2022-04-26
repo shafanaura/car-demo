@@ -4,7 +4,9 @@
 @font-family: "Poppins", sans-serif;
 @primary-color: #4070ff;
 @avatar-border-radius: 12px;
-@tag-border-radius: 16px;
+@border-radius-base: 32px;
+@input-padding-vertical-base: 8px;
+@input-padding-horizontal: 26px;
 
 // global style
 .flex-center {
@@ -13,9 +15,8 @@
 }
 
 // custom antd style for global
-.ant-input-affix-wrapper {
-  border-radius: 32px !important;
-  padding: 12px 26px !important;
+.ant-input {
+  border-radius: 0;
 }
 .ant-tag {
   padding: 3px 16px;
