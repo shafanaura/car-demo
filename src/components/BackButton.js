@@ -4,7 +4,7 @@ import React from "react";
 
 const BackButton = () => {
   return (
-    <Button type="text" icon={<ArrowLeftOutlined />}>
+    <Button type="text" icon={<ArrowLeftOutlined />} size="large">
       Back
     </Button>
   );
