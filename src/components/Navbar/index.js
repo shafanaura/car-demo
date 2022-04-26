@@ -7,7 +7,8 @@ import {
 } from "@ant-design/icons";
 import { Avatar, Button, Input, Typography } from "antd";
 import IconWrapper from "components/IconWrapper";
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { DataService } from "service/DataService";
 import styles from "./styles.module.css";
 
 const iconSize = {
@@ -29,7 +30,15 @@ const MenuList = [
   },
 ];
 
+const api = new DataService();
+
 const Navbar = () => {
+  const [profile, setProfile] = useState(null);
+
+  useEffect(() => {
+    api.getUserDetail().then((res) => setProfile(res));
+  }, []);
+
   return (
     <div className={`flex-center ${styles.container}`}>
       <b className={styles["title-header"]}>Car Information</b>
@@ -45,11 +54,7 @@ const Navbar = () => {
           ))}
         </div>
         <div style={{ display: "flex", gap: 8 }}>
-          <Avatar
-            shape="square"
-            size={48}
-            src="https://images.unsplash.com/photo-1489980557514-251d61e3eeb6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80"
-          />
+          <Avatar shape="square" size={48} src={profile?.image} />
           <div
             style={{
               display: "flex",
@@ -57,9 +62,9 @@ const Navbar = () => {
               justifyContent: "space-evenly",
             }}
           >
-            <Typography>Loren Alvin</Typography>
+            <Typography>{profile?.name}</Typography>
             <Typography style={{ fontWeight: 500, opacity: 0.5 }}>
-              Admin
+              {profile?.role}
             </Typography>
           </div>
         </div>
