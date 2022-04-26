@@ -1,8 +1,8 @@
-import Navbar from "components/Navbar";
+import CarInfo from "pages/CarInfo";
 import "./App.less";
 
 function App() {
-  return <Navbar />;
+  return <CarInfo />;
 }
 
 export default App;
