@@ -1,4 +1,4 @@
-import { Space } from "antd";
+import { Space, Tag } from "antd";
 import React from "react";
 import styles from "./styles.module.css";
 
@@ -59,7 +59,16 @@ const CarDetail = () => {
         {detail.map((item) => (
           <tr>
             <td className={styles["title-menu"]}>{item.title}</td>
-            <td>: {item.value}</td>
+            <td>
+              :{" "}
+              {item.title === "Status" ? (
+                <Tag color={item.value === "In" ? "success" : "error"}>
+                  {item.value}
+                </Tag>
+              ) : (
+                item.value
+              )}
+            </td>
           </tr>
         ))}
       </table>
