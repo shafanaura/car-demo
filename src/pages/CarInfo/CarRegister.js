@@ -1,3 +1,4 @@
+import { CheckCircleOutlined } from "@ant-design/icons";
 import {
   Button,
   Card,
@@ -6,13 +7,14 @@ import {
   DatePicker,
   Form,
   Input,
+  Modal,
   Row,
   Select,
   Space,
   TimePicker,
   Typography,
 } from "antd";
-import React from "react";
+import React, { useState } from "react";
 
 const form = [
   {
@@ -85,6 +87,8 @@ function renderComponent(list) {
 }
 
 const CarRegister = () => {
+  const [isModal, setIsModal] = useState(false);
+
   return (
     <Card>
       <Form layout="vertical">
@@ -103,7 +107,13 @@ const CarRegister = () => {
                 <Button size="large" block>
                   Cancel
                 </Button>
-                <Button type="primary" htmlType="submit" size="large" block>
+                <Button
+                  type="primary"
+                  htmlType="submit"
+                  size="large"
+                  block
+                  onClick={() => setIsModal(true)}
+                >
                   Add Register Time
                 </Button>
               </div>
@@ -111,6 +121,30 @@ const CarRegister = () => {
           </Col>
         </Row>
       </Form>
+      <Modal
+        onCancel={() => setIsModal(false)}
+        cancelButtonProps={{ hidden: true }}
+        okButtonProps={{ hidden: true }}
+        visible={isModal}
+      >
+        <Space align="center" direction="vertical" style={{ display: "flex" }}>
+          <CheckCircleOutlined style={{ fontSize: 120, color: "#4070ff" }} />
+          <Typography style={{ fontWeight: 500, fontSize: 22 }}>
+            Successful
+          </Typography>
+          <Typography style={{ color: "#AAAAAA", fontSize: 18 }}>
+            Successfully add register time
+          </Typography>
+          <Button
+            type="primary"
+            size="large"
+            style={{ marginTop: 16 }}
+            onClick={() => setIsModal(false)}
+          >
+            Confirm
+          </Button>
+        </Space>
+      </Modal>
     </Card>
   );
 };
