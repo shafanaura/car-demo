@@ -31,15 +31,15 @@ const MenuList = [
 
 const Navbar = () => {
   return (
-    <div className={`${styles["flex-center"]} ${styles.container}`}>
+    <div className={`flex-center ${styles.container}`}>
       <b className={styles["title-header"]}>Car Information</b>
       <Input
         style={{ width: 400 }}
         placeholder="Search..."
         suffix={<SearchOutlined style={{ fontSize: 18, color: "#9E9E9E" }} />}
       />
-      <div className={styles["flex-center"]} style={{ gap: 32 }}>
-        <div className={styles["flex-center"]} style={{ gap: 18 }}>
+      <div className="flex-center" style={{ gap: 32 }}>
+        <div className="flex-center" style={{ gap: 18 }}>
           {MenuList.map((item) => (
             <IconWrapper icon={item.icon} count={item.count} />
           ))}

@@ -1,0 +1,11 @@
+.container {
+  padding: 24px;
+  background-color: white;
+  border-radius: 12px;
+  display: flex;
+  gap: 24px;
+}
+.title-menu {
+  font-weight: 600;
+  padding-right: 24px;
+}
