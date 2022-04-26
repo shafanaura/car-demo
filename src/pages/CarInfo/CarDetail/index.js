@@ -45,10 +45,7 @@ const CarDetail = () => {
       <div style={{ display: "flex", justifyContent: "space-between" }}>
         <Space size="large" align="start" style={{ display: "flex" }}>
           <Space size="large" direction="vertical">
-            <Image
-              height={200}
-              src="https://truckmagz.com/wp-content/uploads/2016/03/ultra1518-img1.jpg"
-            />
+            <Image height={200} src={car?.image} />
             <table>
               <tr>
                 <td className={styles["title-menu"]}>Car license :</td>

@@ -20,6 +20,7 @@ mock.onGet("/car").reply(200, {
   status: false,
   insured: true,
   apk: "2021-09-20",
+  image: "https://truckmagz.com/wp-content/uploads/2016/03/ultra1518-img1.jpg",
 });
 
 export class DataService {
